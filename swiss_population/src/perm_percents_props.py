@@ -8,11 +8,15 @@
 
 import pandas as pd
 import numpy as np
+import argparse 
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--input_file", help="../data/clean_data/2016_canton_perm_birthpl_cit_cleaned.csv")
+parser.add_argument("--output_file", help="../data/clean_data/reduced_g1k15_canton_perm_canadians.csv")
+args = parser.parse_args()
 
-
-
-canton_perm_birthpl_cit = pd.read_csv("../data/clean_data/2016_canton_perm_birthpl_cit_cleaned.csv", index_col=0)
+## "../data/clean_data/2016_canton_perm_birthpl_cit_cleaned.csv"
+canton_perm_birthpl_cit = pd.read_csv(args.input_file, index_col=0)
 
 
 
@@ -53,12 +57,12 @@ canton_perm_Canadians_bornabroad["Percentage of Perm Residents who are Canadian"
 
 
 
-reduced_g1k15 = pd.read_csv("../data/clean_data/reduced_g1k15_withcities.csv", index_col=0)
+reduced_g1k15 = pd.read_csv("../data/clean_data/reduced_g1k15_withcantons.csv", index_col=0)
 
 
 
 
-reduced_g1k15 = reduced_g1k15.drop('Unnamed: 0.1', axis=1)
+#reduced_g1k15 = reduced_g1k15.drop('Unnamed: 0.1', axis=1)
 
 
 
@@ -80,6 +84,6 @@ reduced_g1k15["Proportion of Nonperm Residents who are Canadian"] = reduced_cant
 
 
 
-
-reduced_g1k15.to_csv("../data/clean_data/reduced_g1k15_canton_perm_canadians.csv")
+## "../data/clean_data/reduced_g1k15_canton_perm_canadians.csv"
+reduced_g1k15.to_csv(args.output_file)
 

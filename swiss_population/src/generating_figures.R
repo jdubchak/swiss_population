@@ -6,15 +6,33 @@ library(ggswissmaps)
 library(tidyverse)
 library(ggplot2)
 
+print("very start of file")
+
+args <- commandArgs(trailingOnly = TRUE)
+nonperm_all_in <- args[1] ## "../data/clean_data/reduced_g1k15_canton_nonperm_canadians.csv"
+nonperm_all_out <- args[2] ## "../results/nonperm_Canadian_percentages_by_canton_w5large_text.png"
+
+perm_all_in <- args[3] ## "../data/clean_data/reduced_g1k15_canton_perm_canadians.csv"
+perm_all_out <- args[4] ## "../results/perm_Canadian_percentages_by_canton_w5large_text.png"
+
+nonperm_can_in <- args[5] ## "../data/clean_data/reduced_g1k15_canton_nonperm_canadians_total.csv"
+nonperm_can_out <- args[6] ## "../results/nonperm_all_Canadians_by_canton_w5large_text.png"
+
+perm_can_in <- args[7] ## "../data/clean_data/reduced_g1k15_canton_perm_canadians_total.csv"
+perm_can_out <- args[8] ## "../results/perm_all_canadians_by_canton_w5large_text.png"
+
+
 ## specify all lat/longs for plotting of the 5 major cities 
 large_cities <- c("Zurich", "Geneva", "Basel", "Lausanne", "Bern")
 lat_coords <- c(247926, 117821, 267665, 152363, 199657)
 long_coords <- c(683304, 500016, 611288, 538125, 600667)
 large_cities_df <- data_frame(large_cities, lat_coords, long_coords)
 
+print("before read in 1")
+
 ## Percentage of all non permanent residents who were born in Canada 
-canton_nonperm_Canadians_bornabroad <- readr::read_csv("../data/clean_data/reduced_g1k15_canton_nonperm_canadians.csv")
-colnames(canton_nonperm_Canadians_bornabroad)[12:13] <- c("Percent", "Proportion")
+canton_nonperm_Canadians_bornabroad <- readr::read_csv(nonperm_all_in)
+colnames(canton_nonperm_Canadians_bornabroad)[11:12] <- c("Percent", "Proportion")
 
 neuchatel_mean_latlong <- canton_nonperm_Canadians_bornabroad %>% 
   filter(cantons == 'Neuchatel') %>% 
@@ -52,12 +70,13 @@ nonperm_Canadian_percentages_by_canton_w5large_text2 <- nonperm_Canadian_percent
          label="Canton of\nNeuchatel 0.049%") 
 
 ggsave(plot = nonperm_Canadian_percentages_by_canton_w5large_text2, "../results/nonperm_Canadian_percentages_by_canton_annotated.png", width = 14, height = 7)
-ggsave(plot = nonperm_Canadian_percentages_by_canton_w5large_text, "../results/nonperm_Canadian_percentages_by_canton_w5large_text.png", width = 14, height = 7)
+ggsave(plot = nonperm_Canadian_percentages_by_canton_w5large_text, nonperm_all_out, width = 14, height = 7)
 
+print("about to read in 2")
 
 ## Percentage of all permanent residents of Switzerland born in Canada 
-canton_perm_Canadians_bornabroad <- readr::read_csv("../data/clean_data/reduced_g1k15_canton_perm_canadians.csv")
-colnames(canton_perm_Canadians_bornabroad)[12:13] <- c("Percent", "Proportion")
+canton_perm_Canadians_bornabroad <- readr::read_csv(perm_all_in)
+colnames(canton_perm_Canadians_bornabroad)[11:12] <- c("Percent", "Proportion")
 
 geneva_stats <- canton_perm_Canadians_bornabroad %>% 
   filter(cantons=="Geneve") %>% 
@@ -94,20 +113,19 @@ perm_Canadian_percentages_by_canton_w5large_text <- perm_Canadian_percentages_by
   annotate("text", x=large_cities_df$long_coords[5]+8000, y =large_cities_df$lat_coords[5],
            label=large_cities_df$large_cities[5]) 
 
-perm_Canadian_percentages_by_canton_w5large_text2 <- perm_Canadian_percentages_by_canton_w5large_text
-  annotate("text", x=geneva_stats$max_long-19000, y=geneva_stats$max_lat-31000, 
-         label="Canton of\nGeneva 0.546%") +
-  annotate("text", x=vaud_stats$mean_long-20000, y=vaud_stats$mean_lat, 
-           label="Canton of\nVaud 0.565%") 
+perm_Canadian_percentages_by_canton_w5large_text2 <- perm_Canadian_percentages_by_canton_w5large_text + 
+  annotate("text", x=geneva_stats$max_long-19000, y=geneva_stats$max_lat-31000, label="Canton of\nGeneva 0.546%") +
+  annotate("text", x=vaud_stats$mean_long-20000, y=vaud_stats$mean_lat, label="Canton of\nVaud 0.565%") 
 
 
 ggsave(plot = perm_Canadian_percentages_by_canton_w5large_text2, "../results/perm_Canadian_percentages_by_canton_annotated.png", width = 14, height = 7)
-ggsave(plot = perm_Canadian_percentages_by_canton_w5large_text, "../results/perm_Canadian_percentages_by_canton_w5large_text.png", width = 14, height = 7)
+ggsave(plot = perm_Canadian_percentages_by_canton_w5large_text, perm_all_out, width = 14, height = 7)
 
+print("read in 3")
 
 ## Percentage Canadian non permanent residents per canton  
-Canadians_per_canton_nonperm <- readr::read_csv("../data/clean_data/reduced_g1k15_canton_nonperm_canadians_total.csv")
-colnames(Canadians_per_canton_nonperm)[12:13] <- c("Percent", "Proportion")
+Canadians_per_canton_nonperm <- readr::read_csv(nonperm_can_in)
+colnames(Canadians_per_canton_nonperm)[11:12] <- c("Percent", "Proportion")
 
 zurich_stats <- Canadians_per_canton_nonperm %>% 
   filter(cantons=="Zurich") %>% 
@@ -148,13 +166,13 @@ nonperm_Canadian_percentages_by_canton_w5large_text2 <- nonperm_Canadian_percent
   
 
 ggsave(plot = nonperm_Canadian_percentages_by_canton_w5large_text2, "../results/nonperm_all_Canadians_by_canton_annotated.png", width = 14, height = 7)
-ggsave(plot = nonperm_Canadian_percentages_by_canton_w5large_text, "../results/nonperm_all_Canadians_by_canton_w5large_text.png", width = 14, height = 7)
+ggsave(plot = nonperm_Canadian_percentages_by_canton_w5large_text, nonperm_can_out, width = 14, height = 7)
 
-
+print("read in 4")
 
 ## Percentage Canadian permanent residents per canton  
-Canadians_per_canton_perm <- readr::read_csv("../data/clean_data/reduced_g1k15_canton_perm_canadians_total.csv")
-colnames(Canadians_per_canton_perm)[12:13] <- c("Percent", "Proportion")
+Canadians_per_canton_perm <- readr::read_csv(perm_can_in)
+colnames(Canadians_per_canton_perm)[11:12] <- c("Percent", "Proportion")
 
 zurich_stats <- Canadians_per_canton_perm %>% 
   filter(cantons=="Zurich") %>% 
@@ -205,5 +223,5 @@ perm_Canadian_percentages_by_canton_w5large_text2 <- perm_Canadian_percentages_b
            label="Canton of\nGeneva 21.72%")
 
 ggsave(plot = perm_Canadian_percentages_by_canton_w5large_text2, "../results/perm_all_canadians_by_canton_annotated.png", width = 14, height = 7)
-ggsave(plot = perm_Canadian_percentages_by_canton_w5large_text, "../results/perm_all_canadians_by_canton_w5large_text.png", width = 14, height = 7)
+ggsave(plot = perm_Canadian_percentages_by_canton_w5large_text, perm_can_out, width = 14, height = 7)
 

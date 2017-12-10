@@ -1,4 +1,3 @@
-
 ## JD Dec 2017
 # coding: utf-8
 
@@ -7,11 +6,15 @@
 
 import pandas as pd
 import numpy as np
+import argparse 
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--input_file", help="../data/clean_data/2016_canton_nonperm_birthpl_cit_cleaned.csv")
+parser.add_argument("--output_file", help="../data/clean_data/reduced_g1k15_canton_nonperm_canadians_total.csv")
+args = parser.parse_args()
 
-
-
-canton_nonperm_birthpl_cit = pd.read_csv("../data/clean_data/2016_canton_nonperm_birthpl_cit_cleaned.csv", index_col=0)
+## "../data/clean_data/2016_canton_nonperm_birthpl_cit_cleaned.csv"
+canton_nonperm_birthpl_cit = pd.read_csv(args.input_file, index_col=0)
 
 
 
@@ -48,15 +51,17 @@ for ind, row in canton_nonperm_Canadians_bornabroad.iterrows():
 canton_nonperm_Canadians_bornabroad["Proportion of Nonperm Residents who are Canadian in Canton"] = canadian_props
 canton_nonperm_Canadians_bornabroad["Percentage of Nonperm Residents who are Canadian in Canton"] = canadian_percent
 
-
-
-
-reduced_g1k15 = pd.read_csv("../data/clean_data/reduced_g1k15_withcities.csv", index_col=0)
+ 
 
 
 
 
-reduced_g1k15 = reduced_g1k15.drop('Unnamed: 0.1', axis=1)
+reduced_g1k15 = pd.read_csv("../data/clean_data/reduced_g1k15_withcantons.csv", index_col=0)
+
+
+
+
+#reduced_g1k15 = reduced_g1k15.drop('Unnamed: 0.1', axis=1)
 
 
 
@@ -76,8 +81,9 @@ for ind1, row1 in reduced_g1k15.iterrows():
 reduced_g1k15["Percentage of Nonperm Residents who are Canadian in Canton"] = reduced_canton_percent
 reduced_g1k15["Proportion of Nonperm Residents who are Canadian in Canton"] = reduced_canton_prop
 
+ 
 
 
-
+## "../data/clean_data/reduced_g1k15_canton_nonperm_canadians_total.csv"
 reduced_g1k15.to_csv("../data/clean_data/reduced_g1k15_canton_nonperm_canadians_total.csv")
 

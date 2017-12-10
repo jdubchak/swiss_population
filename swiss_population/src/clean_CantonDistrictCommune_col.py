@@ -1,14 +1,26 @@
-## JD Dec 2017
+## Jordan Dubchak, Dec 2017
 
 # ### This file is intended to automate spreading the Canton/District/Commune column into 3 different columns
 
-
-
 ## these files, located in the data/ directory, all contain the "Canton (-) / District (>>) / Commune (......)" column 
 
-files_wCDCcol = ["2016_canton_perm_cit", "2016_canton_allpop_cit", "2016_canton_nonperm_birthpl_cit", 
-                 "2016_canton_perm_birthpl_cit"]
+## parse command line args
+import argparse 
+parser = argparse.ArgumentParser()
 
+parser.add_argument("--file1", help="There should be four files in this list.", default="2016_canton_perm_cit")
+parser.add_argument("--file2", help="There should be four files in this list.", default="2016_canton_allpop_cit")
+parser.add_argument("--file3", help="There should be four files in this list.", default="2016_canton_nonperm_birthpl_cit")
+parser.add_argument("--file4", help="There should be four files in this list.", default="2016_canton_perm_birthpl_cit")
+parser.add_argument("--output_dir", help="This should only be the 'clean_data' directory.")
+args = parser.parse_args()
+
+#desired_dir = args.output_dir
+
+## input: ["2016_canton_perm_cit", "2016_canton_allpop_cit", "2016_canton_nonperm_birthpl_cit", 
+##                 "2016_canton_perm_birthpl_cit"]
+files_wCDCcol = [args.file1, args.file2, args.file3, args.file4]
+#files_wCDCcol = ["2016_canton_perm_cit", "2016_canton_allpop_cit", "2016_canton_nonperm_birthpl_cit", "2016_canton_perm_birthpl_cit"]
 
 def file_input(filename):
     '''
@@ -120,6 +132,8 @@ def write_file(filename):
     Calls rm_acc_chars(filename), reorder_cols(filename), which calls clean_CDC(filename), which calls input_file(filename)
     '''
     df = rm_acc_chars(filename)
+    #output_dir = str(desired_dir)
+
     path = "../data/clean_data/" + filename + "_cleaned.csv"
     df.to_csv(path)
 

@@ -1,18 +1,22 @@
-## JD 2017 
+## Jordan Dubchak 2017 
 
 ## This script maps canton names to their respective groupings in the shp[["g1k15"]] data frame from ggswissmaps. 
 
 # coding: utf-8
 
- 
+import argparse 
+parser = argparse.ArgumentParser()
+parser.add_argument("--input_file", help="This is the adjustedcoords csv file.")
+parser.add_argument("--output_file", help="This is the reduced_g1k15_withcantons file.")
+args = parser.parse_args()
 
 import pandas as pd
 import numpy as np
 
 
  
-
-reduced_g1k15 = pd.read_csv("../data/clean_data/shpdfg1k15_adjustedcoords.csv")
+## input: "../data/clean_data/shpdfg1k15_adjustedcoords.csv"
+reduced_g1k15 = pd.read_csv(args.input_file)
 
 
  
@@ -47,7 +51,7 @@ for i in range(len(canton_names)):
 g1k15_cantons = []
 
 for ind, row in reduced_g1k15.iterrows():
-    g1k15_cantons.append(canton_dict[str(row["KTNR"])])
+    g1k15_cantons.append(canton_dict[str(int(row["KTNR"]))])
 
 
  
@@ -56,6 +60,6 @@ reduced_g1k15["cantons"] = g1k15_cantons
 
 
  
-
-reduced_g1k15.to_csv("../data/clean_data/reduced_g1k15_withcities.csv")
+## output: "../data/clean_data/reduced_g1k15_withcantons.csv"
+reduced_g1k15.to_csv(args.output_file)
 

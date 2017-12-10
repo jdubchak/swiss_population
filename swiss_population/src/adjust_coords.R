@@ -10,8 +10,8 @@
 library(tidyverse)
 library(ggswissmaps)
 
-# args <- commandArgs(trailingOnly = TRUE)
-# output_path <- args[1]
+ args <- commandArgs(trailingOnly = TRUE)
+ output_path <- args[1]
 
  reduced_g1k15 <- shp_df[["g1k15"]] %>% select(order, long, lat, group, id, KTNR)
 
@@ -40,4 +40,4 @@ library(ggswissmaps)
  reduced_g1k15$long_coords <- long_coords
 
  ## input: "../data/clean_data/shpdfg1k15_adjustedcoords.csv"
- readr::write_csv(reduced_g1k15,"../data/clean_data/shpdfg1k15_adjustedcoords.csv")
+ readr::write_csv(reduced_g1k15, output_path)
