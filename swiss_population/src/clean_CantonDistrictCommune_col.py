@@ -138,7 +138,7 @@ def write_file(filename):
     df.to_csv(path)
 
 
-
+## now do all this for each file in the input list 
 for file in files_wCDCcol:
     write_file(file)
 

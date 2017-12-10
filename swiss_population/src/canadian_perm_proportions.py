@@ -20,18 +20,18 @@ canton_perm_birthpl_cit = pd.read_csv(args.input_file, index_col=0)
 
 
  
-
+## reduce cols 
 canton_perm_birthpl_cit_Canada = canton_perm_birthpl_cit[["Year", "Commune", "District", "Canton", "Population type", "Place of birth",
                         "Citizenship - Total", "Canada", "Switzerland"]]
 
 
 
 
-canton_perm_birthpl_cit_Canada.head()
+#canton_perm_birthpl_cit_Canada.head()
 
 
  
-
+## filter for canadian expats 
 canton_perm_Canadians_bornabroad = canton_perm_birthpl_cit_Canada.loc[(canton_perm_birthpl_cit_Canada["Place of birth"] == "Abroad") & 
                                      (canton_perm_birthpl_cit_Canada.District.isnull())][["Year", "Canton", 
                                                                                              "Population type", "Place of birth", 
@@ -39,12 +39,12 @@ canton_perm_Canadians_bornabroad = canton_perm_birthpl_cit_Canada.loc[(canton_pe
 
 
  
-
+## get the number of permanent residents who are canadian expats 
 all_canadians_count = canton_perm_Canadians_bornabroad.iloc[0]["Canada"]
 
 
  
-
+## calculate proportion of canadians in canton/total canadians in switzerland 
 canadian_props = []
 canadian_percent = []
 
@@ -54,13 +54,13 @@ for ind, row in canton_perm_Canadians_bornabroad.iterrows():
 
 
  
-
+## append to df 
 canton_perm_Canadians_bornabroad["Proportion of Perm Residents who are Canadian in Canton"] = canadian_props
 canton_perm_Canadians_bornabroad["Percentage of Perm Residents who are Canadian in Canton"] = canadian_percent
 
 
  
-
+## read in 
 reduced_g1k15 = pd.read_csv("../data/clean_data/reduced_g1k15_withcantons.csv", index_col=0)
 
 
@@ -70,7 +70,7 @@ reduced_g1k15 = pd.read_csv("../data/clean_data/reduced_g1k15_withcantons.csv", 
 
 
  
-
+## map proportion to 9k rows in reduced_g1k15 by canton 
 reduced_canton_percent = []
 reduced_canton_prop = []
 
@@ -82,12 +82,12 @@ for ind1, row1 in reduced_g1k15.iterrows():
 
 
  
-
+## append to df
 reduced_g1k15["Percentage of Perm Residents who are Canadian in Canton"] = reduced_canton_percent
 reduced_g1k15["Proportion of Perm Residents who are Canadian in Canton"] = reduced_canton_prop
 
 
- 
+## save 
 ## "../data/clean_data/reduced_g1k15_canton_perm_canadians_total.csv"
 reduced_g1k15.to_csv(args.output_file)
 

@@ -27,12 +27,12 @@ canton_names = pd.read_csv("../data/clean_data/2016_canton_allpop_cit_cleaned.cs
 
 
  
-
+## eliminate the NaN value
 canton_names = canton_names[1:]
 
 
  
-
+## canton values are in order, create range for length of them 
 canton_group = [val for val in range(1,27)]
 
 
@@ -47,7 +47,7 @@ for i in range(len(canton_names)):
 
 
  
-
+## loop through the 9k rows of reduced_g1k15 and map the canton to the row
 g1k15_cantons = []
 
 for ind, row in reduced_g1k15.iterrows():
@@ -55,7 +55,7 @@ for ind, row in reduced_g1k15.iterrows():
 
 
  
-
+## apend this list to the df as a new col 
 reduced_g1k15["cantons"] = g1k15_cantons
 
 
