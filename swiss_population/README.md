@@ -50,6 +50,7 @@ Script 9: This script generates the markdown file for the report.
 
 `Rscript -e "ezknitr::ezknit('Report.Rmd', out_dir='../doc')"`
 
-
+## Author
+Jordan Dubchak, December 2017. 
 
 
