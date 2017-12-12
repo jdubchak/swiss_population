@@ -4,9 +4,9 @@
 
 This project is intended to explore and expand my data analysis skills in Python and R.  
 
-This dataset will be explored to answer the question of where non permanent residents, specifically Canadians, lived in Switzerland in 2016. The hypothesis for this project is the majority (>50%) of non permanent residents born outside of Switzerland, specifically Canada, lived in cantons containing major city centres in 2016. For this project, major city centres are defined as Zurich, Geneva, Basel, Lausanne, and Bern, as all have populations greater than 125,000 inhabitants. 
+This dataset will be explored to answer the question of where nonpermanent residents, specifically Canadians, lived in Switzerland in 2016. The hypothesis for this project is the majority (>50%) of nonpermanent residents born outside of Switzerland, specifically Canada, lived in cantons containing major city centres in 2016. For this project, major city centres are defined as Zurich, Geneva, Basel, Lausanne, and Bern, as all have populations greater than 125,000 inhabitants. 
 
-In order to summarize the data, proportions of non permanent residents living in city centres were be calculated. This includes filtering for Canadians. The data was be visualized as proportions on a map of Switzerland, generated using R. The final report can be viewed as a [pdf](https://github.com/jdubchak/swiss_population/blob/master/swiss_population/doc/report.pdf) or [markdown document](https://github.com/jdubchak/swiss_population/blob/master/swiss_population/doc/report.md). 
+In order to summarize the data, proportions of non permanent residents living in city centres were calculated. This includes filtering for Canadians. The data was visualized as proportions on a map of Switzerland, generated using R. The final report can be viewed as a [pdf](https://github.com/jdubchak/swiss_population/blob/master/swiss_population/doc/report.pdf) or [markdown document](https://github.com/jdubchak/swiss_population/blob/master/swiss_population/doc/report.md). 
 
 ## The Data
 
