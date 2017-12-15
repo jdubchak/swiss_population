@@ -1,0 +1,180 @@
+commit 2e4af7302bc03a26dddd0158c28b04e6a6ee2c82
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Mon Dec 11 20:51:52 2017 -0800
+
+    Update typos per peer review DSCI 522 Milestone 2
+
+commit b9fece157a47581c270f94a52481380a06bcbcdc
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sun Dec 10 14:06:25 2017 -0800
+
+    Update code documentation
+
+commit 621b57365d3d98d6b203708fe4060790b2eeaa33
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sun Dec 10 13:50:14 2017 -0800
+
+    Update READMEs to reflect current project state
+
+commit 8ee15f7608df17e912032cc2c6848d7fe25e77e2
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sun Dec 10 13:46:59 2017 -0800
+
+    Update README to include reproducibility
+
+commit 52817b0fac9cf3c2c2fcaaddd64ffc770a5a3195
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sun Dec 10 13:12:24 2017 -0800
+
+    Complete final report with PDF for ease of reading
+
+commit 7135149a26b1687a45ee871192035d558302c0d2
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sun Dec 10 10:28:53 2017 -0800
+
+    Update figures after test
+
+commit f72cf54766011ba520336d59c002747eca6d232e
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sun Dec 10 10:27:44 2017 -0800
+
+    Complete files after test
+
+commit 10c35d57a64a79bf34d330399cb21713e641521f
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sun Dec 10 10:26:17 2017 -0800
+
+    Update all command line arguments
+
+commit c4346d8e735e59f7436e658385b24575e8782ee2
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sun Dec 10 00:24:30 2017 -0800
+
+    Fix x and y prime in functions
+
+commit 1b7ce653cbbdca2ea9bbed0bd4a863b0d8e98c28
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sat Dec 9 22:42:09 2017 -0800
+
+    Add documentation source for lat/long conversion
+
+commit 453bad88dc3dc463e33b0786c6057a66591369b3
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sat Dec 9 22:01:49 2017 -0800
+
+    Remove unused scripts
+
+commit 441747c03136223dd542563f39db1dec256ad30d
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sat Dec 9 22:00:51 2017 -0800
+
+    Add script descriptions and update figures
+
+commit f3f5e45e5df939342d1bd87a008fc2a49f6a2afa
+Author: Jordan Dubchak <33734797+jdubchak@users.noreply.github.com>
+Date:   Sat Dec 9 20:48:59 2017 -0800
+
+    Remove raw files not used in project
+
+commit f1c74f3fe769b7b62753c630ce9a5bb699f500ed
+Author: Jordan Dubchak <33734797+jdubchak@users.noreply.github.com>
+Date:   Sat Dec 9 20:48:41 2017 -0800
+
+    Remove raw files not used in project
+
+commit a26c224cc0afe5350b1ffa85cf3981c9b43b8ad8
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sat Dec 9 20:14:49 2017 -0800
+
+    Remove old ipynb scripts
+
+commit bc0b451c75978ed41d13fb09f9ab1c0109cc46b4
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sat Dec 9 20:11:02 2017 -0800
+
+    Replace .ipynb files with .py and clean up src dir
+
+commit bf17c883e67b292f7c6673e0d32bb2daa4e3249b
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sat Dec 9 16:54:07 2017 -0800
+
+    Generate figures for (non)perm residents in Switzerland born in Canadian
+
+commit 0ead9ea5314b586e5b4ff7cb0daa152b140d5393
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sat Dec 9 12:25:01 2017 -0800
+
+    Map cities to groups in g1k15 and append to existing df
+
+commit 333a4b0220498534e70b72ec7a6757e1147242d7
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Fri Dec 8 22:50:43 2017 -0800
+
+    Attempt to clean df for plotting and map cities to lat/long
+
+commit acbea474000bffe4963370b338b98b94c230af67
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Fri Dec 8 12:21:20 2017 -0800
+
+    Convert swiss coordinates to lat and long
+
+commit 96d8ff797e78fa1c72ad77b1394c9ca52f3df88e
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Thu Dec 7 09:23:17 2017 -0800
+
+    Updata data/ dir structure and descriptions of src/ and data/ README files
+
+commit 1f45818de4e37183e52a8123524a846487184402
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Thu Dec 7 08:18:31 2017 -0800
+
+    Execute cleanCDC script and save to csv files *_cleaned
+
+commit e15972481d751d297f17f6135f27d6b26e1d6427
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Thu Dec 7 08:12:54 2017 -0800
+
+    Fixed bug in rm_acc_chars
+
+commit ff328d093be65a9cafa42d55efae98ba3721c779
+Merge: f01a936 4c7d241
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Thu Dec 7 00:18:02 2017 -0800
+
+    Complete merge of origin master
+
+commit f01a936b352d7ed2acc55aae7a48e47589d61dd8
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Thu Dec 7 00:14:37 2017 -0800
+
+    Create functions to CantonDistrictCommune column - contains bug
+
+commit 4c7d241dce2130a18f2afb9ca6da9185f1851b45
+Author: Jordan Dubchak <33734797+jdubchak@users.noreply.github.com>
+Date:   Sun Dec 3 04:37:02 2017 -0800
+
+    Provide brief project description
+
+commit a0b460e0d44cf4ec2e50253b5e20a8ff69cb3095
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sun Dec 3 04:26:32 2017 -0800
+
+    Add brief project description to README
+
+commit 9e8220542d1e174c1a158bb015144a01304d31a1
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Sun Dec 3 04:19:42 2017 -0800
+
+    Add get_head.(py/R) files and update src readme
+
+commit 72cdea0de8f5c744d37453e121c2420fc47ac383
+Author: Jordan Dubchak <jordandubchak@gmail.com>
+Date:   Thu Nov 23 15:50:26 2017 -0800
+
+    Set up project repository
+
+commit 75df9448868c37eae6dac98e0ff08abea6aac9d3
+Author: Jordan Dubchak <33734797+jdubchak@users.noreply.github.com>
+Date:   Thu Nov 23 15:47:49 2017 -0800
+
+    Initial commit
