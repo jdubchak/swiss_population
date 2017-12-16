@@ -56,7 +56,7 @@ canton_nonperm_Canadians_bornabroad["Percentage of Nonperm Residents who are Can
 
 
 ## read in main file 
-reduced_g1k15 = pd.read_csv("/data/clean_data/reduced_g1k15_withcantons.csv", index_col=0)
+reduced_g1k15 = pd.read_csv("data/clean_data/reduced_g1k15_withcantons.csv", index_col=0)
 
 
 
@@ -85,5 +85,5 @@ reduced_g1k15["Proportion of Nonperm Residents who are Canadian in Canton"] = re
 
 ## save 
 ## "../data/clean_data/reduced_g1k15_canton_nonperm_canadians_total.csv"
-reduced_g1k15.to_csv("/data/clean_data/reduced_g1k15_canton_nonperm_canadians_total.csv")
+reduced_g1k15.to_csv("data/clean_data/reduced_g1k15_canton_nonperm_canadians_total.csv")
 

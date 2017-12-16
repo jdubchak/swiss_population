@@ -10,8 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r, echo=FALSE, warning=FALSE}
 suppressMessages({
-  library(knitr)
-  library(tidyverse)
+  library(knitr, quietly = TRUE)
+  library(tidyverse, quietly = TRUE)
 })
 ```
 
@@ -34,7 +34,7 @@ All data was manually collected from a Swiss government website, [STAT-TAB](http
 Table 1: Extreme Values of Proportion (%) of all Non Permanent Swiss Residents Born in Canada, 2016
 
 ```{r, echo=FALSE, warning=FALSE}
-canton_nonperm_Canadians_bornabroad <- suppressMessages(readr::read_csv("../data/clean_data/reduced_g1k15_canton_nonperm_canadians.csv"))
+canton_nonperm_Canadians_bornabroad <- suppressMessages(readr::read_csv("data/clean_data/reduced_g1k15_canton_nonperm_canadians.csv"))
 colnames(canton_nonperm_Canadians_bornabroad)[11:12] <- c("Percent", "Proportion")
 canton_nonperm_Canadians_bornabroad <- canton_nonperm_Canadians_bornabroad %>% 
   group_by(cantons) %>% 
@@ -59,7 +59,7 @@ Table 1 and Figure 1 show the largest proportion of all Canadians who are non pe
 Table 2: Extreme Values of Proportion (%) of all Permanent Swiss Residents Born in Canada, 2016
 
 ```{r, echo=FALSE, warning=FALSE}
-canton_perm_Canadians_bornabroad <- suppressMessages(readr::read_csv("../data/clean_data/reduced_g1k15_canton_perm_canadians.csv"))
+canton_perm_Canadians_bornabroad <- suppressMessages(readr::read_csv("data/clean_data/reduced_g1k15_canton_perm_canadians.csv"))
 colnames(canton_perm_Canadians_bornabroad)[11:12] <- c("Percent", "Proportion")
 canton_perm_Canadians_bornabroad <- canton_perm_Canadians_bornabroad %>% 
   group_by(cantons) %>% 
@@ -87,7 +87,7 @@ Table 2 and Figure 2 show the largest proportion of all Canadians who are perman
 Table 3: Extreme Values of Proportion (%) of Canadian Non Permanent Swiss Residents, 2016
 
 ```{r, echo=FALSE, warning=FALSE}
-canton_nonperm_Canadians <- suppressMessages(readr::read_csv("../data/clean_data/reduced_g1k15_canton_nonperm_canadians_total.csv"))
+canton_nonperm_Canadians <- suppressMessages(readr::read_csv("data/clean_data/reduced_g1k15_canton_nonperm_canadians_total.csv"))
 colnames(canton_nonperm_Canadians)[11:12] <- c("Percent", "Proportion")
 canton_nonperm_Canadians <- canton_nonperm_Canadians %>% 
   group_by(cantons) %>% 
@@ -111,7 +111,7 @@ Table 3 and Figure 3 show the largest proportion of all Canadians residing in Sw
 
 Table 4: Extreme Values of Proportion (%) of Canadian Permanent Swiss Residents, 2016
 ```{r, echo=FALSE, warning=FALSE}
-canton_perm_Canadians <- suppressMessages(readr::read_csv("../data/clean_data/reduced_g1k15_canton_perm_canadians_total.csv"))
+canton_perm_Canadians <- suppressMessages(readr::read_csv("data/clean_data/reduced_g1k15_canton_perm_canadians_total.csv"))
 colnames(canton_perm_Canadians)[11:12] <- c("Percent", "Proportion")
 canton_perm_Canadians <- canton_perm_Canadians %>% 
   group_by(cantons) %>% 

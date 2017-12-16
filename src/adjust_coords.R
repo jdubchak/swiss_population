@@ -7,8 +7,10 @@
 ## view-source:http://www.giangrandi.ch/soft/swissgrid/swissgrid.shtml and
 ## the PDF found in /doc : ch1903wgs84_f.pdf
 
-library(tidyverse)
-library(ggswissmaps)
+suppressMessages({
+  library(tidyverse, quietly = TRUE)
+  library(ggswissmaps, quietly = TRUE)
+})
 
  args <- commandArgs(trailingOnly = TRUE)
  output_path <- args[1]

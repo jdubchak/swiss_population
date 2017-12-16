@@ -23,7 +23,7 @@ reduced_g1k15 = pd.read_csv(args.input_file)
 
 ## read in canton names as they are stored in the 2016_canton_....csv files 
 
-canton_names = pd.read_csv("/data/clean_data/2016_canton_allpop_cit_cleaned.csv", usecols=["Canton"]).Canton.unique()
+canton_names = pd.read_csv("data/clean_data/2016_canton_allpop_cit_cleaned.csv", usecols=["Canton"]).Canton.unique()
 
 
  
