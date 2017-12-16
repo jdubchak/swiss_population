@@ -31,7 +31,7 @@ def file_input(filename):
     '''
     
     import pandas as pd
-    filename = "../data/raw_data/" + filename + ".csv"
+    filename = "data/raw_data/" + filename + ".csv"
     file = pd.read_csv(filename, encoding="latin-1", sep=" ", low_memory=False, skiprows=1)
     return file 
 
@@ -134,7 +134,7 @@ def write_file(filename):
     df = rm_acc_chars(filename)
     #output_dir = str(desired_dir)
 
-    path = "/data/clean_data/" + filename + "_cleaned.csv"
+    path = "data/clean_data/" + filename + "_cleaned.csv"
     df.to_csv(path)
 
 
