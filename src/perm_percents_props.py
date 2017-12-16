@@ -11,8 +11,8 @@ import numpy as np
 import argparse 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--input_file", help="../data/clean_data/2016_canton_perm_birthpl_cit_cleaned.csv")
-parser.add_argument("--output_file", help="../data/clean_data/reduced_g1k15_canton_perm_canadians.csv")
+parser.add_argument("--input_file", help="/data/clean_data/2016_canton_perm_birthpl_cit_cleaned.csv")
+parser.add_argument("--output_file", help="/data/clean_data/reduced_g1k15_canton_perm_canadians.csv")
 args = parser.parse_args()
 
 ## "../data/clean_data/2016_canton_perm_birthpl_cit_cleaned.csv"
@@ -57,7 +57,7 @@ canton_perm_Canadians_bornabroad["Percentage of Perm Residents who are Canadian"
 
 
 ## read in main reduced_g1k15 
-reduced_g1k15 = pd.read_csv("../data/clean_data/reduced_g1k15_withcantons.csv", index_col=0)
+reduced_g1k15 = pd.read_csv("/data/clean_data/reduced_g1k15_withcantons.csv", index_col=0)
 
 
 

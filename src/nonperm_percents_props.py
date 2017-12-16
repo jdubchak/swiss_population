@@ -52,12 +52,12 @@ canton_nonperm_Canadians_bornabroad["Percentage of Nonperm Residents who are Can
 
  
 ## write this out as a file 
-canton_nonperm_Canadians_bornabroad.to_csv("../data/clean_data/2016_canton_nonperm_Canadians_bornabroad.csv")
+canton_nonperm_Canadians_bornabroad.to_csv("/data/clean_data/2016_canton_nonperm_Canadians_bornabroad.csv")
 
 
  
 ## read in reduced_g1k15
-reduced_g1k15 = pd.read_csv("../data/clean_data/reduced_g1k15_withcantons.csv", index_col=0)
+reduced_g1k15 = pd.read_csv("/data/clean_data/reduced_g1k15_withcantons.csv", index_col=0)
 
 
  

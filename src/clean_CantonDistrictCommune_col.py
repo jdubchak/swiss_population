@@ -134,7 +134,7 @@ def write_file(filename):
     df = rm_acc_chars(filename)
     #output_dir = str(desired_dir)
 
-    path = "../data/clean_data/" + filename + "_cleaned.csv"
+    path = "/data/clean_data/" + filename + "_cleaned.csv"
     df.to_csv(path)
 
 

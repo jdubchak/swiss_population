@@ -6,7 +6,7 @@ library(ggswissmaps)
 library(tidyverse)
 library(ggplot2)
 
-print("very start of file")
+#print("very start of file")
 
 args <- commandArgs(trailingOnly = TRUE)
 nonperm_all_in <- args[1] ## "../data/clean_data/reduced_g1k15_canton_nonperm_canadians.csv"
@@ -69,7 +69,7 @@ nonperm_Canadian_percentages_by_canton_w5large_text2 <- nonperm_Canadian_percent
   annotate("text", x=neuchatel_mean_latlong$max_long-50000, y=neuchatel_mean_latlong$max_lat-10000, 
          label="Canton of\nNeuchatel 0.049%") 
 
-ggsave(plot = nonperm_Canadian_percentages_by_canton_w5large_text2, "../results/nonperm_Canadian_percentages_by_canton_annotated.png", width = 14, height = 7)
+ggsave(plot = nonperm_Canadian_percentages_by_canton_w5large_text2, "/results/nonperm_Canadian_percentages_by_canton_annotated.png", width = 14, height = 7)
 ggsave(plot = nonperm_Canadian_percentages_by_canton_w5large_text, nonperm_all_out, width = 14, height = 7)
 
 print("about to read in 2")
@@ -118,7 +118,7 @@ perm_Canadian_percentages_by_canton_w5large_text2 <- perm_Canadian_percentages_b
   annotate("text", x=vaud_stats$mean_long-20000, y=vaud_stats$mean_lat, label="Canton of\nVaud 0.565%") 
 
 
-ggsave(plot = perm_Canadian_percentages_by_canton_w5large_text2, "../results/perm_Canadian_percentages_by_canton_annotated.png", width = 14, height = 7)
+ggsave(plot = perm_Canadian_percentages_by_canton_w5large_text2, "/results/perm_Canadian_percentages_by_canton_annotated.png", width = 14, height = 7)
 ggsave(plot = perm_Canadian_percentages_by_canton_w5large_text, perm_all_out, width = 14, height = 7)
 
 print("read in 3")
@@ -165,7 +165,7 @@ nonperm_Canadian_percentages_by_canton_w5large_text2 <- nonperm_Canadian_percent
            label="Canton of\nVaud 22.65%") 
   
 
-ggsave(plot = nonperm_Canadian_percentages_by_canton_w5large_text2, "../results/nonperm_all_Canadians_by_canton_annotated.png", width = 14, height = 7)
+ggsave(plot = nonperm_Canadian_percentages_by_canton_w5large_text2, "/results/nonperm_all_Canadians_by_canton_annotated.png", width = 14, height = 7)
 ggsave(plot = nonperm_Canadian_percentages_by_canton_w5large_text, nonperm_can_out, width = 14, height = 7)
 
 print("read in 4")
@@ -222,6 +222,6 @@ perm_Canadian_percentages_by_canton_w5large_text2 <- perm_Canadian_percentages_b
   annotate("text", x=geneva_stats2$max_long-2000, y=geneva_stats2$max_lat-20000, 
            label="Canton of\nGeneva 21.72%")
 
-ggsave(plot = perm_Canadian_percentages_by_canton_w5large_text2, "../results/perm_all_canadians_by_canton_annotated.png", width = 14, height = 7)
+ggsave(plot = perm_Canadian_percentages_by_canton_w5large_text2, "/results/perm_all_canadians_by_canton_annotated.png", width = 14, height = 7)
 ggsave(plot = perm_Canadian_percentages_by_canton_w5large_text, perm_can_out, width = 14, height = 7)
 
