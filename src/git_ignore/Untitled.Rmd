@@ -1,9 +1,0 @@
----
-title: "Swiss Non Permanent and Permanent Residents Born In Canada"
-output: github_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
