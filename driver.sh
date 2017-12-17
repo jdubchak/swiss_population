@@ -19,7 +19,7 @@ python3 src/clean_CantonDistrictCommune_col.py --file1 "2016_canton_perm_cit" --
 
 ## Script 2: This script only takes 1 input as the file uses a dataframe from `ggswissmaps`. 
 
-RScript src/adjust_coords.R "data/clean_data/shpdfg1k15_adjustedcoords.csv"   ## add -e
+RScript -e src/adjust_coords.R "data/clean_data/shpdfg1k15_adjustedcoords.csv" 
 
 
 ## Script 3: This script maps cantons of the `ggswissmaps` object to the data frames cleaned in script 1.
@@ -46,7 +46,7 @@ python3 src/canadian_perm_proportions.py --input_file "data/clean_data/2016_cant
 
 echo "Generating Figures"
 
-RScript src/generating_figures.R "data/clean_data/reduced_g1k15_canton_nonperm_canadians.csv" "results/nonperm_Canadian_percentages_by_canton_w5large_text.png" "data/clean_data/reduced_g1k15_canton_perm_canadians.csv" "results/perm_Canadian_percentages_by_canton_w5large_text.png" "data/clean_data/reduced_g1k15_canton_nonperm_canadians_total.csv" "results/nonperm_all_Canadians_by_canton_w5large_text.png" "data/clean_data/reduced_g1k15_canton_perm_canadians_total.csv" "results/perm_all_canadians_by_canton_w5large_text.png"   ## add -e
+RScript -e src/generating_figures.R "data/clean_data/reduced_g1k15_canton_nonperm_canadians.csv" "results/nonperm_Canadian_percentages_by_canton_w5large_text.png" "data/clean_data/reduced_g1k15_canton_perm_canadians.csv" "results/perm_Canadian_percentages_by_canton_w5large_text.png" "data/clean_data/reduced_g1k15_canton_nonperm_canadians_total.csv" "results/nonperm_all_Canadians_by_canton_w5large_text.png" "data/clean_data/reduced_g1k15_canton_perm_canadians_total.csv" "results/perm_all_canadians_by_canton_w5large_text.png"
 
 echo "Generating Report"
 
