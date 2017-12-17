@@ -1,5 +1,7 @@
 ## JD Dec 2017 
-## this script generates all visualizations for milestone 2 
+## this script generates all visualizations (4 with proportion annotations, 4 without) for milestone 2 
+
+packrat::restore()
 
 suppressMessages({
   library(ggplot2, quietly = TRUE)

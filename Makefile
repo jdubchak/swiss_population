@@ -7,10 +7,13 @@
 ## Usage:
 ##	$ make clean: deletes all intermediate files 
 ##	$ make all: geneerates the entire report 
+##
+## Note: This file can be finicky. If 'make all' generates an error, try running 'make __insert rule__' for any rule, and then 
+##       try executing 'make all' again. 
 
 
 ## Run the entire project 
-all: data/clean_data/2016_canton_perm_cit_cleaned.csv 
+all: final_report results/*.png 
 
 ## Script 1: This script cleans the Canton/District/Commune column, and transforms latin encoding to utf-8. 
 data/clean_data/2016_canton_perm_cit_cleaned.csv data/clean_data/2016_canton_allpop_cit_cleaned.csv data/clean_data/2016_canton_nonperm_birthpl_cit_cleaned.csv data/clean_data/2016_canton_perm_birthpl_cit_cleaned.csv: src/clean_CantonDistrictCommune_col.py
@@ -29,7 +32,7 @@ data/clean_data/reduced_g1k15_withcantons.csv: data/clean_data/shpdfg1k15_adjust
 
 ## Scripts 4-7: These scripts calculate the proportion of non permanent and permanent Swiss residents born in Canada. Scripts 4 and 5 calculate non permanent and permanent Canadians per canton / total non permanent and permanent expats, while scripts 6 and 7 caculate non permanent and permanent Canadians per canton / total non permanent and permanent Canadians.
 
-data/clean_data/reduced_g1k15_canton_nonperm_canadians.csv: data/clean_data/2016_canton_nonperm_birthpl_cit_cleaned.csv" src/nonperm_percents_props.py
+data/clean_data/reduced_g1k15_canton_nonperm_canadians.csv: data/clean_data/2016_canton_nonperm_birthpl_cit_cleaned.csv src/nonperm_percents_props.py
 	python3 src/nonperm_percents_props.py --input_file "data/clean_data/2016_canton_nonperm_birthpl_cit_cleaned.csv" --output_file "data/clean_data/reduced_g1k15_canton_nonperm_canadians.csv"
 
 data/clean_data/reduced_g1k15_canton_perm_canadians.csv: data/clean_data/2016_canton_perm_birthpl_cit_cleaned.csv src/perm_percents_props.py
@@ -42,11 +45,11 @@ data/clean_data/reduced_g1k15_canton_perm_canadians_total.csv: data/clean_data/2
 	python3 src/canadian_perm_proportions.py --input_file "data/clean_data/2016_canton_perm_birthpl_cit_cleaned.csv" --output_file "data/clean_data/reduced_g1k15_canton_perm_canadians_total.csv"
 
 ##Script 8: This script generates figures for the four cleaned data sets from scripts 4-7. Eight figures are generated (two per script), as one figure contains annotations, while the second does not. 
-results/perm_all_canadians_by_canton_w5large_text.png results/nonperm_all_Canadians_by_canton_w5large_text.png results/perm_Canadian_percentages_by_canton_w5large_text.png results/nonperm_Canadian_percentages_by_canton_w5large_text.png: data/clean_data/reduced_g1k15_canton_perm_canadians_total.csv data/clean_data/reduced_g1k15_canton_nonperm_canadians_total.csv data/clean_data/reduced_g1k15_canton_perm_canadians.csv data/clean_data/reduced_g1k15_canton_nonperm_canadians.csv src/generating_figures.R 
+results/*.png: data/clean_data/reduced_g1k15_canton_perm_canadians_total.csv data/clean_data/reduced_g1k15_canton_nonperm_canadians_total.csv data/clean_data/reduced_g1k15_canton_perm_canadians.csv data/clean_data/reduced_g1k15_canton_nonperm_canadians.csv src/generating_figures.R 
 	RScript src/generating_figures.R "data/clean_data/reduced_g1k15_canton_nonperm_canadians.csv" "results/nonperm_Canadian_percentages_by_canton_w5large_text.png" "data/clean_data/reduced_g1k15_canton_perm_canadians.csv" "results/perm_Canadian_percentages_by_canton_w5large_text.png" "data/clean_data/reduced_g1k15_canton_nonperm_canadians_total.csv" "results/nonperm_all_Canadians_by_canton_w5large_text.png" "data/clean_data/reduced_g1k15_canton_perm_canadians_total.csv" "results/perm_all_canadians_by_canton_w5large_text.png"   ## add -e
 
 ## Script 9: This script generates the markdown file for the report. 
-doc/Report.md: src/Report.Rmd  
+final_report: src/Report.Rmd results/*.png
 	Rscript -e "ezknitr::ezknit('src/Report.Rmd', out_dir='doc')"
 
 ## Clean up intermediate files 
