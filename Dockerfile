@@ -9,7 +9,7 @@ RUN Rscript -e "install.packages('ezknitr', repos = 'https://mran.revolutionanal
 RUN Rscript -e "install.packages('tidyverse', repos = 'http://cran.us.r-project.org')"
 RUN Rscript -e "install.packages('ggswissmaps', repos = 'http://cran.us.r-project.org')"
 RUN Rscript -e "install.packages('packrat', repos = 'http://cran.us.r-project.org')"
-RUN Rscript -e "install.packages('ggplot2', repos = http://cran.us.r-project.org')"
+RUN Rscript -e "install.packages('ggplot2', repos = 'http://cran.us.r-project.org')"
 
 # install python 3
 RUN apt-get update \
