@@ -28,6 +28,12 @@ To reproduce the project using the Makefile, execute the following command on yo
 
 `make all` 
 
+To reproduce the project using docker, execute the following commands on your command line.
+
+`docker pull jdubchak/swiss_population`
+
+`docker run -it --rm -v your_local_pathway:/home/swiss_population jdubchak/swiss_population /bin/bash` 
+
 ![](Makefile.png) 
 
 ## Author
