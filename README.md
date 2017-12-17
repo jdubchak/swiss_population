@@ -14,13 +14,21 @@ The data for this project was manually collected from the [Swiss STAT-TAB](https
 
 ## Requirements
 
-This project was completed using Python 3, and `pandas` `v0.20.1`, and figures were generated in R, using `tidyverse` `v1.1.1`, `ggplot2` `v2.2.1` and `ggswissmaps` `v0.1.1`. As required by Milestone 2, the project release can be found [here](https://github.com/jdubchak/swiss_population/releases/tag/2.0). 
+This project was completed using Python 3, and `pandas` `v0.20.1`, and figures were generated in R, using `tidyverse` `v1.1.1`, `ggplot2` `v2.2.1` and `ggswissmaps` `v0.1.1`. As required by Milestone 3, the project release can be found [here](https://github.com/jdubchak/swiss_population/releases/tag/v3.0). 
 
 ## Reproducibility
 
-This project runs 9 scripts contained in the `src` directory. To reproduce this project, clone this repository. Please navigate to the project root directory, `swiss_population` and execute the following command on your command line.
+This project runs 9 scripts contained in the `src` directory. There are 3 ways to reproduce this project: using the [driver script](https://github.com/jdubchak/swiss_population/blob/master/driver.sh), [Makefile](https://github.com/jdubchak/swiss_population/blob/master/Makefile), or the bash command [docker pull jdubchak/swiss_population](https://hub.docker.com/r/jdubchak/swiss_population/). First, please clone this repository and navigate to the project root directory, `swiss_population`. 
+
+To reproduce the project using the driver script, execute the following command on your command line.
 
 `sh driver.sh` 
+
+To reproduce the project using the Makefile, execute the following command on your command line.
+
+`make all` 
+
+![](Makefile.png) 
 
 ## Author
 Jordan Dubchak, December 2017. 
